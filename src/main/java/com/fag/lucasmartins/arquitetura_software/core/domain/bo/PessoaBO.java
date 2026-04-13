@@ -1,6 +1,6 @@
 package com.fag.lucasmartins.arquitetura_software.core.domain.bo;
 
-import com.fag.lucasmartins.arquitetura_software.core.domain.exceptions.DomainPessoaException;
+import com.fag.lucasmartins.arquitetura_software.core.domain.exceptions.DomainException;
 
 public class PessoaBO {
 
@@ -13,31 +13,31 @@ public class PessoaBO {
 
     public void ValidaNome() {
         if (this.nome == null || this.nome.isBlank()) {
-            throw new DomainPessoaException("Nome não pode ser nulo");
+            throw new DomainException("Nome não pode ser nulo");
         }
     }
 
     public void ValidadeCPF() {
         if (this.cpf == null || this.cpf.length() != 11) {
-            throw new DomainPessoaException("CPF deve ter 11 caracteres");
+            throw new DomainException("CPF deve ter 11 caracteres");
         }
     }
 
     public void ValidadeTelefone() {
         if (this.telefone == null || this.telefone.length() != 11) {
-            throw new DomainPessoaException("Telefone deve ter 11 caracteres");
+            throw new DomainException("Telefone deve ter 11 caracteres");
         }
     }
 
     public void ValidaEmail() {
         if (this.email == null || !this.email.contains("@")) {
-            throw new DomainPessoaException("Email inválido");
+            throw new DomainException("Email inválido");
         }
     }
 
     public void ValidaIdade() {
         if (this.idade < 18) {
-            throw new DomainPessoaException("Cadastro deve ser maior de 18 anos");
+            throw new DomainException("Cadastro deve ser maior de 18 anos");
         }
     }
 
